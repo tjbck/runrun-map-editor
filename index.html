@@ -16,14 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script> -->
-
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
-
-
 </head>
 
 <body>
@@ -147,85 +140,7 @@
             </div>
         </div>
     </div>
-
-    <!-- <script src="./data/items-dev.js"></script> -->
-    <script>
-        // Vue.set(app.obstacleBoards, app.obstacleBoards.length, JSON.parse(JSON.stringify(app.obstacleBoardBase)))
-
-        // app.obstacleBoards.push(JSON.parse(JSON.stringify(app.obstacleBoardBase)))
-        // app.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
-
-        fetch('./data/items.json')
-            .then(response => {
-                return response.json()
-            })
-            .then(items => {
-                var app = new Vue({
-                    el: '#app',
-                    data: {
-                        e2j: '',
-                        tileSelected: 0,
-                        tileOptions: items.tiles,
-                        tileBoard: [
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                        ],
-                        obstacleSelected: 0,
-                        obstacleOptions: items.obstacles,
-                        obstacleBoardBase: [
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                        ],
-                        obstacleBoards: [
-                            [
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                            ]
-                        ]
-                    },
-                    methods: {
-                        addObstacleBoard: function () {
-                            this.obstacleBoards.push(JSON.parse(JSON.stringify(app.obstacleBoardBase)))
-                        },
-                        removeObstacleBoard: function () {
-                            this.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
-                        },
-                        exportToJson: function () {
-                            var e2j = {
-                                "T": this.tileBoard,
-                                "P": this.obstacleBoards
-                            }
-                            this.e2j = JSON.stringify(e2j)
-                        },
-                        copyToClipboard: function () {
-
-                            var copyText = document.getElementById("mapJsonData");
-                            copyText.select();
-                            document.execCommand("copy");
-                            alert("Copied the Map JSON Data");
-
-                        }
-                    },
-                    delimiters: ['[[', ']]']
-                })
-            })
-            .catch(err => {
-                console.log("An Error has Ocurred")
-            })
-
-
-    // new Vue({ el: '#app', data: { message }, delimiters: ['[[', ']]'] });
-    </script>
-
+    <script src="./main.js"></script>
 </body>
 
 </html>
