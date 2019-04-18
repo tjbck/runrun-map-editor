@@ -56,8 +56,8 @@
                                     </div>
 
                                     <select class="custom-select" v-model="tileSelected">
-                                        <option v-for="tileOption in tileOptions" v-bind:value="tileOption.value">
-                                            [[ tileOption.text ]]
+                                        <option v-for="tileOption in tileOptions" v-bind:value="tileOption.index">
+                                            [[ tileOption.name ]]
                                         </option>
                                     </select>
 
@@ -111,8 +111,8 @@
 
                                     <select class="custom-select" v-model="obstacleSelected">
                                         <option v-for="obstacleOption in obstacleOptions"
-                                            v-bind:value="obstacleOption.value">
-                                            [[ obstacleOption.text ]]
+                                            v-bind:value="obstacleOption.index">
+                                            [[ obstacleOption.name ]]
                                         </option>
                                     </select>
 
@@ -158,20 +158,12 @@
             items = json;
         });
 
-
-        console.log(items)
-
         var app = new Vue({
             el: '#app',
             data: {
                 e2j: '',
                 tileSelected: 0,
-                tileOptions: [
-                    { text: 'Empty', value: 0 },
-                    { text: 'Cannot Move Tile', value: 1 },
-                    { text: 'Conveyor belt', value: 2 },
-                    { text: 'Door', value: 3 }
-                ],
+                tileOptions: items.tiles,
                 tileBoard: [
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -180,10 +172,7 @@
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 ],
                 obstacleSelected: 0,
-                obstacleOptions: [
-                    { text: 'Empty', value: 0 },
-                    { text: 'Cream', value: 1 }
-                ],
+                obstacleOptions: items.obstacles,
                 obstacleBoardBase: [
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
