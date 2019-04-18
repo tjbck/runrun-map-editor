@@ -162,7 +162,7 @@
                 return response.json()
             })
             .then(data => {
-                items = data
+                items = JSON.parse(JSON.stringify((data)))
                 console.log(data)
             })
             .catch(err => {
