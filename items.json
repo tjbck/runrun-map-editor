@@ -1,0 +1,22 @@
+{
+    "tiles":[
+        {
+            "index": 0,
+            "name": "RAIL"       
+        },
+        {
+            "index": 0,
+            "name": "RAIL"       
+        }
+    ],
+    "obstacles":[
+        {
+            "index": 0,
+            "name": "RAIL"       
+        },
+        {
+            "index": 0,
+            "name": "RAIL"       
+        }
+    ]
+}
