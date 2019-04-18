@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" type="image/jpg" href="http://i.imgur.com/S7JAgIN.jpg" />
+    <link rel="shortcut icon" type="image/jpg" href="./static/logo.jpg" />
     <title>RUNRUN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,6 +17,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 
@@ -26,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-            <img src="http://i.imgur.com/S7JAgIN.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="./static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
         </a>
     </nav>
 
@@ -150,6 +153,13 @@
 
         // app.obstacleBoards.push(JSON.parse(JSON.stringify(app.obstacleBoardBase)))
         // app.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
+        var items;
+        $.getJSON("./data/items.json", function (json) {
+            items = json;
+        });
+
+
+        console.log(items)
 
         var app = new Vue({
             el: '#app',
@@ -203,22 +213,13 @@
                         "T": this.tileBoard,
                         "P": this.obstacleBoards
                     }
-
                     this.e2j = JSON.stringify(e2j)
-
-                    //                 alert(this.e2j)
                 },
                 copyToClipboard: function () {
 
                     var copyText = document.getElementById("mapJsonData");
-
-                    /* Select the text field */
                     copyText.select();
-
-                    /* Copy the text inside the text field */
                     document.execCommand("copy");
-
-                    /* Alert the copied text */
                     alert("Copied the Map JSON Data");
 
                 }
