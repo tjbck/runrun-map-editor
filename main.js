@@ -1,8 +1,3 @@
-// Vue.set(app.obstacleBoards, app.obstacleBoards.length, JSON.parse(JSON.stringify(app.obstacleBoardBase)))
-
-// app.obstacleBoards.push(JSON.parse(JSON.stringify(app.obstacleBoardBase)))
-// app.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
-
 fetch('./data/items.json')
     .then(response => {
         return response.json()
@@ -71,4 +66,10 @@ fetch('./data/items.json')
     })
 
 
-    // new Vue({ el: '#app', data: { message }, delimiters: ['[[', ']]'] });
+
+// COMMENTS BELOW
+
+// new Vue({ el: '#app', data: { message }, delimiters: ['[[', ']]'] });
+// Vue.set(app.obstacleBoards, app.obstacleBoards.length, JSON.parse(JSON.stringify(app.obstacleBoardBase)))
+// app.obstacleBoards.push(JSON.parse(JSON.stringify(app.obstacleBoardBase)))
+// app.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
