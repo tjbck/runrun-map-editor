@@ -1,34 +1,34 @@
 var items = {
-    "tiles":[
+    "tiles": [
         {
             "index": 0,
-            "name": "Empty"       
+            "name": "Empty"
         },
         {
             "index": 1,
-            "name": "Cannot Move Tile"       
+            "name": "Cannot Move Tile"
         },
         {
             "index": 2,
-            "name": "Conveyor belt"       
+            "name": "Conveyor belt"
         },
         {
             "index": 3,
-            "name": "Door"       
+            "name": "Door"
         },
         {
             "index": 4,
-            "name": "TEST"       
+            "name": "TEST"
         }
     ],
-    "obstacles":[
+    "obstacles": [
         {
             "index": 0,
-            "name": "Empty"       
+            "name": "Empty"
         },
         {
             "index": 1,
-            "name": "Cream"       
+            "name": "Cream"
         }
     ]
 }

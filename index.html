@@ -22,7 +22,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-            <img src="./static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="./static/logo.jpg" width="30" class="d-inline-block align-top" alt="">
         </a>
     </nav>
 
@@ -35,12 +35,21 @@
                         <div class="card text-center" style="width: 29.7rem;">
                             <h5 class="card-header">Tile Board</h5>
 
-                            <div class="btn-group" role="group" aria-label="Basic example"
-                                v-for="(tileRow, tileRowIndex) in tileBoard">
-                                <button type="button" class="btn btn-light" v-for="(tile, tileIndex) in tileRow"
-                                    v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
-                                    ]]</button>
-                            </div>
+
+
+                                                        
+                            <table style="width:100%">
+                                <tr v-for="(tileRow, tileRowIndex) in tileBoard">
+                                    <td style="white-space: nowrap; width: 1px;" v-for="(tile, tileIndex) in tileRow">
+                                        <button type="button" class="btn btn-light"
+                                        v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
+                                        ]]</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            
+
 
                             <div class="card-body">
                                 <div class="input-group mb-3">
@@ -62,6 +71,29 @@
 
                         </div>
                     </div>
+
+
+                    <div class="col-md-auto center-block ">
+                        <div class="card text-center" style="width: 29.7rem;">
+                            <h5 class="card-header">Tile Board Preview</h5>
+
+                            <table  style="width:100%; border-spacing: 0px;">
+                                <tr  v-for="(tileRow, tileRowIndex) in tileBoard">
+                                    <td style="padding: 0px; margin: 0px;" v-for="(tile, tileIndex) in tileRow">
+                                        <img src="./static/rail.png" width="35" v-if="tile === 0" />
+                                        <img src="./static/door.png" width="35" v-if="tile === 2" />
+                                        <img src="./static/cream.png" width="35" v-if="tile === 3" />
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="card-body">
+
+                            </div>
+
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -140,7 +172,8 @@
             </div>
         </div>
     </div>
-    <script src="./main.js"></script>
+    <script src="./data/items-dev.js"></script>
+    <script src="./main-dev.js"></script>
 </body>
 
 </html>

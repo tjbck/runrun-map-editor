@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 0px solid black;
+        }
+    </style>
+    <link rel="shortcut icon" type="image/jpg" href="./static/logo.jpg" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <table style="width:10;border: 0px ; border-spacing: 0px;">
+            <tr v-for="(tileRow, tileRowIndex) in tileBoard">
+                <td style="padding: 0px;border: 0px ; margin: 0px;" v-for="(tile, tileIndex) in tileRow">
+                    <img src="./static/rail.png" width="35" v-if="tile === 0" />
+                    <img src="./static/door.png" width="35" v-if="tile === 2" />
+                    <img src="./static/cream.png" width="35" v-if="tile === 3" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="./data/items-dev.js"></script>
+    <script src="./main-dev.js"></script>
+</body>
+
+</html>
