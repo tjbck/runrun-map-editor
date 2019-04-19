@@ -14,14 +14,15 @@
 </head>
 
 <body>
+
     <div id="app">
 
-        <table style="width:10;border: 0px ; border-spacing: 0px;">
+        <table style="width:10;border: 0px ; border-spacing: 0px; font-size:0;">
             <tr v-for="(tileRow, tileRowIndex) in tileBoard">
-                <td style="padding: 0px;border: 0px ; margin: 0px;" v-for="(tile, tileIndex) in tileRow">
-                    <img src="./static/rail.png" width="35" v-if="tile === 0" />
-                    <img src="./static/door.png" width="35" v-if="tile === 2" />
-                    <img src="./static/cream.png" width="35" v-if="tile === 3" />
+                <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;" v-for="(tile, tileIndex) in tileRow">
+                    <img src="./static/rail.png" width="35" v-if="tile === 0" style="float:left; display: block; padding:-1px;" />
+                    <img src="./static/door.png" width="35" v-if="tile === 2" style="float:left; display: block; padding:-1px; " />
+                    <img src="./static/cream.png" width="35" v-if="tile === 3" style="float:left; display: block; padding:-1px;" />
                 </td>
             </tr>
         </table>

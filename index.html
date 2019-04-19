@@ -37,18 +37,18 @@
 
 
 
-                                                        
+
                             <table style="width:100%">
                                 <tr v-for="(tileRow, tileRowIndex) in tileBoard">
                                     <td style="white-space: nowrap; width: 1px;" v-for="(tile, tileIndex) in tileRow">
                                         <button type="button" class="btn btn-light"
-                                        v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
-                                        ]]</button>
+                                            v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
+                                            ]]</button>
                                     </td>
                                 </tr>
                             </table>
 
-                            
+
 
 
                             <div class="card-body">
@@ -77,12 +77,16 @@
                         <div class="card text-center" style="width: 29.7rem;">
                             <h5 class="card-header">Tile Board Preview</h5>
 
-                            <table  style="width:100%; border-spacing: 0px;">
-                                <tr  v-for="(tileRow, tileRowIndex) in tileBoard">
-                                    <td style="padding: 0px; margin: 0px;" v-for="(tile, tileIndex) in tileRow">
-                                        <img src="./static/rail.png" width="35" v-if="tile === 0" />
-                                        <img src="./static/door.png" width="35" v-if="tile === 2" />
-                                        <img src="./static/cream.png" width="35" v-if="tile === 3" />
+                            <table style="width:10;border: 0px ; border-spacing: 0px; font-size:0;">
+                                <tr v-for="(tileRow, tileRowIndex) in tileBoard">
+                                    <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
+                                        v-for="(tile, tileIndex) in tileRow">
+                                        <img src="./static/rail.png" width="35" v-if="tile === 0"
+                                            style="float:left; display: block; padding:-1px;" />
+                                        <img src="./static/door.png" width="35" v-if="tile === 2"
+                                            style="float:left; display: block; padding:-1px; " />
+                                        <img src="./static/cream.png" width="35" v-if="tile === 3"
+                                            style="float:left; display: block; padding:-1px;" />
                                     </td>
                                 </tr>
                             </table>
@@ -172,8 +176,7 @@
             </div>
         </div>
     </div>
-    <script src="./data/items-dev.js"></script>
-    <script src="./main-dev.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
