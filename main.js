@@ -6,17 +6,17 @@ fetch('./data/items.json')
         var app = new Vue({
             el: '#app',
             data: {
-                e2j: '',
+                mapDataJSON: '',
                 tileSelected: 0,
                 tileOptions: items.tiles,
                 tileBoard: [
-                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                 ],
-                obstacleSelected: 0,
+                obstacleSelected: 1,
                 obstacleOptions: items.obstacles,
                 obstacleBoardBase: [
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -27,6 +27,24 @@ fetch('./data/items.json')
                 ],
                 obstacleBoards: [
                     [
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    ], [
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    ], [
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    ], [
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,19 +61,19 @@ fetch('./data/items.json')
                     this.obstacleBoards.splice(app.obstacleBoards.length - 1, 1)
                 },
                 exportToJson: function () {
-                    var e2j = {
+                    this.mapDataJSON = JSON.stringify({
                         "T": this.tileBoard,
                         "P": this.obstacleBoards
-                    }
-                    this.e2j = JSON.stringify(e2j)
+                    })
                 },
                 copyToClipboard: function () {
-
                     var copyText = document.getElementById("mapJsonData");
                     copyText.select();
                     document.execCommand("copy");
                     alert("Copied the Map JSON Data");
-
+                },
+                loadMap: function () {
+                    alert('Map Loaded')
                 }
             },
             delimiters: ['[[', ']]']

@@ -32,7 +32,7 @@
             <div class="container">
 
                 <div class="input-group mb-3">
-                    <input type="text" v-model="e2j" class="form-control" placeholder=""
+                    <input type="text" v-model="mapDataJSON" class="form-control" placeholder=""
                         aria-label="Example text with button addon" aria-describedby="button-addon1" id="mapJsonData">
 
                     <div class="input-group-append">
@@ -180,28 +180,39 @@
                                 <strong><em>[[ obstacleBoardIndex ]]</em></strong>
 
 
-                                <table style="width:10;border: 0px ; border-spacing: 0px; font-size:0;">
-                                        <tr v-for="(tileRow, tileRowIndex) in tileBoard">
-                                            <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
-                                                v-for="(tile, tileIndex) in tileRow">
-        
-                                                <img src="./static/tiles/empty.png" width="35" v-if="tile === 0"
-                                                    style="float:left; display: block; padding:-1px;" />
-                                                <!---->
-                                                <img src="./static/tiles/cannotMove.png" width="35" v-if="tile === 1"
-                                                    style="float:left; display: block; padding:-1px; " />
-                                                <!---->
-                                                <img src="./static/tiles/convbelt.png" width="35" v-if="tile === 2"
-                                                    style="float:left; display: block; padding:-1px;" />
-                                                <!---->
-                                                <img src="./static/tiles/door.png" width="35" v-if="tile === 3"
-                                                    style="float:left; display: block; padding:-1px;" />
-                                                <!---->
-        
-                                            </td>
-                                        </tr>
-                                    </table>
 
+
+                                <table style="width:100% ;border: 0px ; border-spacing: 0px; font-size:0;">
+                                    <tr v-for="(obstacleRow, obstacleRowIndex) in obstacleBoard">
+                                        <td style="background:'./static/tiles/cannotMove.png' padding: 0px;border: 0px ; margin: 0px; font-size:0;"
+                                            v-for="(obstacle, obstacleIndex) in obstacleRow">
+
+
+                                            <!-- background -->
+                                            <img src="./static/tiles/empty.png" width="35" v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 0"
+                                                style="float:left; display: block; padding:-1px; z-index:1;" />
+                                            <!---->
+                                            <img src="./static/tiles/cannotMove.png" width="35" v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 1"
+                                                style="float:left; display: block; padding:-1px; z-index:1;" />
+                                            <!---->
+                                            <img src="./static/tiles/convbelt.png" width="35" v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 2"
+                                                style="float:left; display: block; padding:-1px; z-index:1;" />
+                                            <!---->
+                                            <img src="./static/tiles/door.png" width="35" v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 3"
+                                                style="float:left; display: block; padding:-1px; z-index:1;" />
+                                            <!---->
+
+
+                                            <!-- obstacles -->
+                                            <img src="./static/obstacles/empty.png" width="35" v-if="obstacle === 0"
+                                                style="float:left; display: block; padding:-1px; position: absolute; z-index:2;" />
+                                            <!---->
+                                            <img src="./static/obstacles/cream.png" width="35" v-if="obstacle === 1"
+                                                style="float:left; display: block; padding:-1px; position: absolute; z-index:2;" />
+                                            <!---->
+                                        </td>
+                                    </tr>
+                                </table>
 
                             </div>
                         </div>
@@ -211,7 +222,7 @@
                 <hr class="my-4">
 
                 <div class="input-group mb-3">
-                    <input type="text" v-model="e2j" class="form-control" placeholder=""
+                    <input type="text" v-model="mapDataJSON" class="form-control" placeholder=""
                         aria-label="Example text with button addon" aria-describedby="button-addon1" id="mapJsonData">
 
                     <div class="input-group-append">
@@ -222,17 +233,17 @@
 
                 </div>
 
-                <p>Map JSON Data is: [[ e2j ]]</p>
+                <p>Map JSON Data is: [[ mapDataJSON ]]</p>
 
                 <hr class="my-4">
             </div>
         </div>
     </div>
 
-    <script src="./data/items-dev.js"></script>
-    <script src="./main-dev.js"></script>
+    <!-- <script src="./data/items-dev.js"></script>
+    <script src="./main-dev.js"></script> -->
 
-    <!-- <script src="./main.js"></script> -->
+    <script src="./main.js"></script>
 </body>
 
 </html>
