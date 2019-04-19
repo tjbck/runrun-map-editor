@@ -17,6 +17,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 
 <body>
@@ -29,18 +30,30 @@
     <div id="app">
         <div class="container-fluid" style="margin-top:50px">
             <div class="container">
+
+                <div class="input-group mb-3">
+                    <input type="text" v-model="e2j" class="form-control" placeholder=""
+                        aria-label="Example text with button addon" aria-describedby="button-addon1" id="mapJsonData">
+
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" v-on:click="loadMap" type="button"
+                            id="button-addon1">Load Map JSON</button>
+                    </div>
+
+                </div>
+
+
+                <hr class="my-4">
                 <div class="row justify-content-md-center ">
 
                     <div class="col-md-auto center-block ">
-                        <div class="card text-center" style="width: 29.7rem;">
+                        <div class="card text-center">
                             <h5 class="card-header">Tile Board</h5>
 
-
-
-
-                            <table style="width:100%">
+                            <table style="width:100% ;border: 0px ; border-spacing: 0px; font-size:0;">
                                 <tr v-for="(tileRow, tileRowIndex) in tileBoard">
-                                    <td style="white-space: nowrap; width: 1px;" v-for="(tile, tileIndex) in tileRow">
+                                    <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
+                                        v-for="(tile, tileIndex) in tileRow">
                                         <button type="button" class="btn btn-light"
                                             v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
                                             ]]</button>
@@ -48,53 +61,46 @@
                                 </tr>
                             </table>
 
-
-
-
                             <div class="card-body">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">Options</label>
                                     </div>
-
                                     <select class="custom-select" v-model="tileSelected">
                                         <option v-for="tileOption in tileOptions" v-bind:value="tileOption.index">
                                             [[ tileOption.name ]]
                                         </option>
                                     </select>
-
                                 </div>
-
                                 <span>Selected: [[ tileSelected ]]</span>
-
                             </div>
-
                         </div>
                     </div>
 
-
                     <div class="col-md-auto center-block ">
-                        <div class="card text-center" style="width: 29.7rem;">
+                        <div class="card text-center">
                             <h5 class="card-header">Tile Board Preview</h5>
-
                             <table style="width:10;border: 0px ; border-spacing: 0px; font-size:0;">
                                 <tr v-for="(tileRow, tileRowIndex) in tileBoard">
                                     <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
                                         v-for="(tile, tileIndex) in tileRow">
-                                        <img src="./static/rail.png" width="35" v-if="tile === 0"
+
+                                        <img src="./static/tiles/empty.png" width="35" v-if="tile === 0"
                                             style="float:left; display: block; padding:-1px;" />
-                                        <img src="./static/door.png" width="35" v-if="tile === 2"
+                                        <!---->
+                                        <img src="./static/tiles/cannotMove.png" width="35" v-if="tile === 1"
                                             style="float:left; display: block; padding:-1px; " />
-                                        <img src="./static/cream.png" width="35" v-if="tile === 3"
+                                        <!---->
+                                        <img src="./static/tiles/convbelt.png" width="35" v-if="tile === 2"
                                             style="float:left; display: block; padding:-1px;" />
+                                        <!---->
+                                        <img src="./static/tiles/door.png" width="35" v-if="tile === 3"
+                                            style="float:left; display: block; padding:-1px;" />
+                                        <!---->
+
                                     </td>
                                 </tr>
                             </table>
-
-                            <div class="card-body">
-
-                            </div>
-
                         </div>
                     </div>
 
@@ -103,32 +109,32 @@
 
                 <hr class="my-4">
 
+                <!-- OBSTACLE BOARD BELOW -->
+
                 <div class="row justify-content-md-center ">
 
                     <div class="col-md-auto center-block">
-                        <div class="card text-center" style="width: 25.5rem;">
+                        <div class="card text-center">
                             <div class="card-header">
                                 <h5>Obstacle Board</h5>
-
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" v-on:click="addObstacleBoard" class="btn btn-light">+</button>
-                                    <button type="button" v-on:click="removeObstacleBoard"
-                                        class="btn btn-light">-</button>
-                                </div>
                             </div>
 
                             <div v-for="(obstacleBoard, obstacleBoardIndex) in obstacleBoards">
 
                                 <strong><em>[[ obstacleBoardIndex ]]</em></strong>
 
-                                <div class="btn-group" role="group" aria-label="Basic example"
-                                    v-for="(obstacleRow, obstacleRowIndex) in obstacleBoard">
-                                    <button type="button" class="btn btn-light"
-                                        v-for="(obstacle, obstacleIndex) in obstacleRow"
-                                        v-on:click="Vue.set(obstacleRow, obstacleIndex, obstacleSelected)">
-                                        [[ obstacleRow[obstacleIndex] ]]
-                                    </button>
-                                </div>
+
+                                <table style="width:100% ;border: 0px ; border-spacing: 0px; font-size:0;">
+                                    <tr v-for="(obstacleRow, obstacleRowIndex) in obstacleBoard">
+                                        <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
+                                            v-for="(obstacle, obstacleIndex) in obstacleRow">
+                                            <button type="button" class="btn btn-light"
+                                                v-on:click="Vue.set(obstacleRow, obstacleIndex, obstacleSelected)">
+                                                [[ obstacleRow[obstacleIndex] ]]
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
 
                             </div>
 
@@ -146,10 +152,56 @@
                                     </select>
 
                                 </div>
-                                <!-- 
-                            <span>Selected: [[ obstacleSelected ]]</span> -->
+
+
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" v-on:click="addObstacleBoard"
+                                        class="btn btn-outline-primary">+</button>
+                                    <button type="button" v-on:click="removeObstacleBoard"
+                                        class="btn btn-outline-danger">-</button>
+                                </div>
+
                                 <button type="button" v-on:click="exportToJson" class="btn btn-light">Export to
                                     JSON</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-auto center-block">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                <h5>Obstacle Board Preview</h5>
+                            </div>
+
+                            <div v-for="(obstacleBoard, obstacleBoardIndex) in obstacleBoards">
+
+                                <strong><em>[[ obstacleBoardIndex ]]</em></strong>
+
+
+                                <table style="width:10;border: 0px ; border-spacing: 0px; font-size:0;">
+                                        <tr v-for="(tileRow, tileRowIndex) in tileBoard">
+                                            <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
+                                                v-for="(tile, tileIndex) in tileRow">
+        
+                                                <img src="./static/tiles/empty.png" width="35" v-if="tile === 0"
+                                                    style="float:left; display: block; padding:-1px;" />
+                                                <!---->
+                                                <img src="./static/tiles/cannotMove.png" width="35" v-if="tile === 1"
+                                                    style="float:left; display: block; padding:-1px; " />
+                                                <!---->
+                                                <img src="./static/tiles/convbelt.png" width="35" v-if="tile === 2"
+                                                    style="float:left; display: block; padding:-1px;" />
+                                                <!---->
+                                                <img src="./static/tiles/door.png" width="35" v-if="tile === 3"
+                                                    style="float:left; display: block; padding:-1px;" />
+                                                <!---->
+        
+                                            </td>
+                                        </tr>
+                                    </table>
+
 
                             </div>
                         </div>
@@ -176,7 +228,11 @@
             </div>
         </div>
     </div>
-    <script src="./main.js"></script>
+
+    <script src="./data/items-dev.js"></script>
+    <script src="./main-dev.js"></script>
+
+    <!-- <script src="./main.js"></script> -->
 </body>
 
 </html>

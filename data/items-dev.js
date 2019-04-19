@@ -15,10 +15,6 @@ var items = {
         {
             "index": 3,
             "name": "Door"
-        },
-        {
-            "index": 4,
-            "name": "TEST"
         }
     ],
     "obstacles": [
