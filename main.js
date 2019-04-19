@@ -32,19 +32,19 @@ fetch('./data/items.json')
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ], [
+                    ],[
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ], [
+                    ],[
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ], [
+                    ],[
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -70,9 +70,14 @@ fetch('./data/items.json')
                     var copyText = document.getElementById("mapJsonData");
                     copyText.select();
                     document.execCommand("copy");
-                    alert("Copied the Map JSON Data");
+                    alert("Copied Map Data");
                 },
                 loadMap: function () {
+                    var mapDataJSON = JSON.parse(this.mapDataJSON)
+        
+                    this.tileBoard = mapDataJSON["T"]
+                    this.obstacleBoards = mapDataJSON["P"]
+        
                     alert('Map Loaded')
                 }
             },
