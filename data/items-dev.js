@@ -1,30 +1,41 @@
 var items = {
-    "tiles": [
+    "tiles":[
         {
             "index": 0,
-            "name": "Empty"
+            "name": "Empty",
+            "img": "empty.png"
         },
         {
             "index": 1,
-            "name": "Cannot Move Tile"
+            "name": "Cannot Move",
+            "img": "cannotMove.png"
         },
         {
             "index": 2,
-            "name": "Conveyor belt"
+            "name": "Conv Belt",
+            "img": "convbelt.png"    
         },
         {
             "index": 3,
-            "name": "Door"
+            "name": "Entrance",
+            "img": "door.png"
+        },
+        {
+            "index": 4,
+            "name": "Exit",
+            "img": "door.png"
         }
     ],
-    "obstacles": [
+    "obstacles":[
         {
             "index": 0,
-            "name": "Empty"
+            "name": "Empty",
+            "img": "empty.png"     
         },
         {
             "index": 1,
-            "name": "Cream"
+            "name": "Cream",
+            "img": "cream.png"
         }
     ]
 }
