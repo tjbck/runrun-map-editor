@@ -17,7 +17,12 @@
         },
         {
             "index": 3,
-            "name": "Door",
+            "name": "Entrance",
+            "img": "door.png"
+        },
+        {
+            "index": 4,
+            "name": "Exit",
             "img": "door.png"
         }
     ],

@@ -97,6 +97,9 @@
                                         <img src="./static/tiles/door.png" width="35" v-if="tile === 3"
                                             style="float:left; display: block; padding:-1px;" />
                                         <!---->
+                                        <img src="./static/tiles/door.png" width="35" v-if="tile === 4"
+                                            style="float:left; display: block; padding:-1px;" />
+                                        <!---->
 
                                     </td>
                                 </tr>
@@ -200,6 +203,10 @@
                                             <!---->
                                             <img src="./static/tiles/door.png" width="35"
                                                 v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 3"
+                                                style="float:left; display: block; padding:-1px; z-index:1;" />
+                                            <!---->
+                                            <img src="./static/tiles/door.png" width="35"
+                                                v-if="tileBoard[obstacleRowIndex][obstacleIndex + 1] === 4"
                                                 style="float:left; display: block; padding:-1px; z-index:1;" />
                                             <!---->
 
