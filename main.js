@@ -32,19 +32,19 @@ fetch('./data/items.json')
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ],[
+                    ], [
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ],[
+                    ], [
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    ],[
+                    ], [
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -66,6 +66,18 @@ fetch('./data/items.json')
                         "P": this.obstacleBoards
                     })
                 },
+                downloadMap: function () {
+                    var text = document.getElementById("mapJsonData").value;
+                    var filename = "r" + Date.now() + ".json";
+
+                    var element = document.createElement('a');
+                    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                    element.setAttribute('download', filename);
+                    element.style.display = 'none';
+                    document.body.appendChild(element);
+                    element.click();
+                    document.body.removeChild(element);
+                },
                 copyToClipboard: function () {
                     var copyText = document.getElementById("mapJsonData");
                     copyText.select();
@@ -74,10 +86,10 @@ fetch('./data/items.json')
                 },
                 loadMap: function () {
                     var mapDataJSON = JSON.parse(this.mapDataJSON)
-        
+
                     this.tileBoard = mapDataJSON["T"]
                     this.obstacleBoards = mapDataJSON["P"]
-        
+
                     alert('Map Loaded')
                 }
             },
