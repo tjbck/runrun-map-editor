@@ -28,7 +28,7 @@
     </nav>
 
     <div id="app">
-        <div class="container-fluid" style="margin-top:50px">
+        <div class="container-fluid" style="margin-top:50px" v-if="items">
             <div class="container">
 
                 <div class="input-group mb-3">
@@ -55,8 +55,7 @@
                                     <td style="padding: 0px;border: 0px ; margin: 0px; font-size:0;"
                                         v-for="(tile, tileIndex) in tileRow">
                                         <button type="button" class="btn btn-light"
-                                            v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">[[ tileRow[tileIndex]
-                                            ]]</button>
+                                            v-on:click="Vue.set(tileRow, tileIndex, tileSelected)">{{ tileRow[tileIndex] }}</button>
                                     </td>
                                 </tr>
                             </table>
@@ -68,11 +67,11 @@
                                     </div>
                                     <select class="custom-select" v-model="tileSelected">
                                         <option v-for="tileOption in tileOptions" v-bind:value="tileOption.index">
-                                            [[ tileOption.name ]]
+                                            {{ tileOption.name }}
                                         </option>
                                     </select>
                                 </div>
-                                <span>Selected: [[ tileSelected ]]</span>
+                                <span>Selected: {{ tileSelected }}</span>
                             </div>
                         </div>
                     </div>
@@ -112,7 +111,7 @@
 
                             <div v-for="(obstacleBoard, obstacleBoardIndex) in obstacleBoards">
 
-                                <strong><em>[[ obstacleBoardIndex ]]</em></strong>
+                                <strong><em>{{ obstacleBoardIndex }}</em></strong>
 
 
                                 <table style="width:100% ;border: 0px ; border-spacing: 0px; font-size:0;">
@@ -121,7 +120,7 @@
                                             v-for="(obstacle, obstacleIndex) in obstacleRow">
                                             <button type="button" class="btn btn-light"
                                                 v-on:click="Vue.set(obstacleRow, obstacleIndex, obstacleSelected)">
-                                                [[ obstacleRow[obstacleIndex] ]]
+                                                {{ obstacleRow[obstacleIndex] }}
                                             </button>
                                         </td>
                                     </tr>
@@ -138,7 +137,7 @@
                                     <select class="custom-select" v-model="obstacleSelected">
                                         <option v-for="obstacleOption in obstacleOptions"
                                             v-bind:value="obstacleOption.index">
-                                            [[ obstacleOption.name ]]
+                                            {{ obstacleOption.name }}
                                         </option>
                                     </select>
 
@@ -165,7 +164,7 @@
 
                             <div v-for="(obstacleBoard, obstacleBoardIndex) in obstacleBoards">
 
-                                <strong><em>[[ obstacleBoardIndex ]]</em></strong>
+                                <strong><em>{{ obstacleBoardIndex }}</em></strong>
 
                                 <table style="width:100% ;border: 0px ; border-spacing: 0px; font-size:0;">
                                     <tr v-for="(obstacleRow, obstacleRowIndex) in obstacleBoard">
